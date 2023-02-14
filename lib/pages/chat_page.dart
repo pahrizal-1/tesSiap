@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../widget/chat_room.dart';
 
@@ -18,7 +15,7 @@ class ChatPage extends StatelessWidget {
           elevation: 0,
           leading: Container(
             margin: const EdgeInsets.only(left: 20, top: 10),
-            child: GestureDetector(
+            child: InkWell(
               onTap: () {
                 Navigator.pop(context);
               },
@@ -28,13 +25,11 @@ class ChatPage extends StatelessWidget {
               ),
             ),
           ),
-
           title: Padding(
             padding: const EdgeInsets.only(top: 8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                // ignore: prefer_const_constructors
                 const CircleAvatar(
                   backgroundColor: Colors.white,
                   radius: 25,
@@ -45,17 +40,15 @@ class ChatPage extends StatelessWidget {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    const Text(
+                  children: const [
+                    Text(
                       'Grup Facabok',
                       style: TextStyle(fontSize: 25),
                     ),
-                    // ignore: prefer_const_constructors
                     Text(
                       '10,123 Members',
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w500, fontSize: 18),
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],
@@ -63,9 +56,8 @@ class ChatPage extends StatelessWidget {
               ],
             ),
           ),
-          // ignore: prefer_const_literals_to_create_immutables
-          actions: [
-            const Padding(
+          actions: const [
+            Padding(
               padding: EdgeInsets.only(
                 top: 10,
                 right: 25,
@@ -81,7 +73,6 @@ class ChatPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          // ignore: prefer_const_literals_to_create_immutables
           children: const [
             Chat(
               chatTitle: 'Halo Apa Kabar Teman',
@@ -145,44 +136,46 @@ class ChatPage extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              margin: EdgeInsets.all(5),
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              margin: const EdgeInsets.all(5),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.emoji_emotions_outlined,
                     color: Colors.black38,
                     size: 30,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Container(
                     width: 230,
                     child: TextFormField(
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 19,
                       ),
-                      decoration: InputDecoration(
-                          hintText: "Mesege..", border: InputBorder.none),
+                      decoration: const InputDecoration(
+                        hintText: "Mesege..",
+                        border: InputBorder.none,
+                      ),
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.attachment,
                     color: Colors.black38,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                 ],
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 5),
+              margin: const EdgeInsets.only(left: 5),
               padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
                 color: const Color(0xffe9eef2),

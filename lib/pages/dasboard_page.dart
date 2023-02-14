@@ -1,6 +1,6 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../widget/chat_card.dart';
 import 'chat_page.dart';
@@ -12,7 +12,7 @@ class DasbordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff2296F3),
+      backgroundColor: const Color(0xfff2296f3),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -35,33 +35,29 @@ class DasbordScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // ignore: prefer_const_constructors
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            // ignore: prefer_const_constructors
-            Text(
+            const Text(
               'Pahrizal',
-              // ignore: prefer_const_constructors
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 35,
-                  fontWeight: FontWeight.w500),
+                color: Colors.white,
+                fontSize: 35,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             const SizedBox(
               height: 10,
             ),
-            // ignore: prefer_const_constructors
-            Text(
+            const Text(
               'Junior Web Development',
-              // ignore: prefer_const_constructors
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300),
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+              ),
             ),
-            // ignore: prefer_const_constructors
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Container(
@@ -78,7 +74,6 @@ class DasbordScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  // ignore: prefer_const_literals_to_create_immutables
                   children: [
                     const Text(
                       'Friends',
@@ -88,8 +83,7 @@ class DasbordScreen extends StatelessWidget {
                         fontSize: 20,
                       ),
                     ),
-                    // ignore: prefer_const_constructors
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     const ChatCard(
@@ -120,12 +114,14 @@ class DasbordScreen extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ChatPage()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ChatPage(),
+                          ),
+                        );
                       },
                       child: const ChatCard(
                         nameTitle: 'Grup Facbook',
@@ -142,7 +138,6 @@ class DasbordScreen extends StatelessWidget {
                       iconUrl: 'assets/lisa 1.jpg',
                       chat: Colors.grey,
                     ),
-
                     const ChatCard(
                       nameTitle: 'Grup Islam',
                       timeTitle: '02:00',
@@ -173,8 +168,12 @@ class DasbordScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const ContackPage()));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ContactPage(),
+            ),
+          );
         },
         backgroundColor: Colors.blue,
         child: const Icon(Icons.chat),

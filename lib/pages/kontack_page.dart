@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../widget/group_card.dart';
 
-class ContackPage extends StatelessWidget {
-  const ContackPage({super.key});
+class ContactPage extends StatelessWidget {
+  const ContactPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,47 +76,47 @@ class ContackPage extends StatelessWidget {
               iconLeft: Icons.plus_one,
               urlIcon: Icons.qr_code,
             ),
-            ContackCard(
+            ContactCard(
               nameTile: "Udin12",
               nameSecond: "Jangan Chat Besok aja",
               urlImage: 'assets/lisa1.jpg',
             ),
-            ContackCard(
+            ContactCard(
               nameTile: "Muhyi",
               nameSecond: "AllhamDulillah",
               urlImage: 'assets/lisa3.png',
             ),
-            ContackCard(
+            ContactCard(
               nameTile: "Muhyi",
               nameSecond: "AllhamDulillah",
               urlImage: 'assets/lisa3.png',
             ),
-            ContackCard(
+            ContactCard(
               nameTile: "Muhyi",
               nameSecond: "AllhamDulillah",
               urlImage: 'assets/lisa3.png',
             ),
-            ContackCard(
+            ContactCard(
               nameTile: "Muhyi",
               nameSecond: "AllhamDulillah",
               urlImage: 'assets/lisa3.png',
             ),
-            ContackCard(
+            ContactCard(
               nameTile: "Muhyi",
               nameSecond: "AllhamDulillah",
               urlImage: 'assets/lisa3.png',
             ),
-            ContackCard(
+            ContactCard(
               nameTile: "Muhyi",
               nameSecond: "AllhamDulillah",
               urlImage: 'assets/lisa3.png',
             ),
-            ContackCard(
+            ContactCard(
               nameTile: "udin",
               nameSecond: "AllhamDulillah",
               urlImage: 'assets/lisa3.png',
             ),
-            ContackCard(
+            ContactCard(
               nameTile: "Muhyi",
               nameSecond: "AllhamDulillah",
               urlImage: 'assets/lisa3.png',
@@ -128,12 +128,12 @@ class ContackPage extends StatelessWidget {
   }
 }
 
-class ContackCard extends StatelessWidget {
+class ContactCard extends StatelessWidget {
   final String nameTile;
   final String nameSecond;
   final String urlImage;
 
-  const ContackCard({
+  const ContactCard({
     Key? key,
     required this.nameTile,
     required this.nameSecond,

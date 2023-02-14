@@ -21,7 +21,6 @@ class ChatCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10),
       height: 100,
       child: Row(
-        // ignore: prefer_const_literals_to_create_immutables
         children: [
           CircleAvatar(
             backgroundColor: const Color(0xffE8E8E8),
@@ -32,7 +31,6 @@ class ChatCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              // ignore: prefer_const_literals_to_create_immutables
               children: [
                 Text(
                   nameTitle,
@@ -57,8 +55,8 @@ class ChatCard extends StatelessWidget {
           Spacer(),
           Text(
             timeTitle,
-            style: TextStyle(
-                color: const Color(0xffA0A0A0), fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                color: Color(0xffA0A0A0), fontWeight: FontWeight.bold),
           ),
         ],
       ),

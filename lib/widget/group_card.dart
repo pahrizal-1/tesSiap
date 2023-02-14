@@ -15,7 +15,6 @@ class GrupCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       Row(
-        // ignore: prefer_const_literals_to_create_immutables
         children: [
           Padding(
             padding: const EdgeInsets.all(10),
@@ -29,16 +28,14 @@ class GrupCard extends StatelessWidget {
               ),
             ),
           ),
-          // ignore: prefer_const_constructors
-          SizedBox(
+          const SizedBox(
             width: 8,
           ),
-          // ignore: prefer_const_constructors
           Text(
             titleName,
             style: const TextStyle(fontSize: 25),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.only(right: 15),
             child: Icon(
