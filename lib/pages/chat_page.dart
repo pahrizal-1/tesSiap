@@ -71,6 +71,7 @@ class ChatPage extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
+        reverse: false,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: const [
@@ -121,22 +122,17 @@ class ChatPage extends StatelessWidget {
               urlImg: 'assets/lisa1.jpg',
               clockTitle: "20:20",
             ),
-            Chat(
-              nameTitle: 'Umi',
-              chatTitle: 'baik kak',
-              urlImg: 'assets/lisa1.jpg',
-              clockTitle: "20:20",
-            ),
           ],
         ),
       ),
-      bottomSheet: Container(
+      bottomNavigationBar: Container(
         height: 90,
-        color: Colors.grey,
+        width: 10,
+        color: const Color(0xffF0F0F0),
         child: Row(
           children: [
             Container(
-              margin: const EdgeInsets.all(5),
+              margin: const EdgeInsets.only(left: 20),
               padding: const EdgeInsets.symmetric(
                 vertical: 10,
               ),
@@ -154,16 +150,14 @@ class ChatPage extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  Container(
-                    width: 230,
+                  SizedBox(
+                    width: 200,
                     child: TextFormField(
                       style: const TextStyle(
                         fontSize: 19,
                       ),
                       decoration: const InputDecoration(
-                        hintText: "Mesege..",
-                        border: InputBorder.none,
-                      ),
+                          hintText: "Mesege..", border: InputBorder.none),
                     ),
                   ),
                   const Icon(
@@ -187,7 +181,7 @@ class ChatPage extends StatelessWidget {
                 Icons.arrow_right,
                 size: 40,
               ),
-            ),
+            )
           ],
         ),
       ),
