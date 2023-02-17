@@ -1,5 +1,3 @@
-// ignore_for_file: use_full_hex_values_for_flutter_colors
-
 import 'package:flutter/material.dart';
 import 'package:tesbisa/theme/theme.dart';
 
@@ -43,12 +41,15 @@ class DasbordScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Text('Junior Web Development', style: subtitleTextStyle),
+            Text(
+              'Junior Web Development',
+              style: subtitleTextStyle,
+            ),
             const SizedBox(
               height: 30,
             ),
             Container(
-              width: MediaQuery.of(context).size.width,
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: whiteColor,
                 borderRadius: const BorderRadius.only(
@@ -57,8 +58,7 @@ class DasbordScreen extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                padding: symetric,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -104,33 +104,33 @@ class DasbordScreen extends StatelessWidget {
                         chat: Colors.black54,
                       ),
                     ),
-                    const ChatCard(
+                    ChatCard(
                       nameTitle: 'Babu Bogor',
                       timeTitle: '02:00',
                       secondTitle: 'gass',
                       iconUrl: 'assets/lisa 1.jpg',
-                      chat: Colors.grey,
+                      chat: greyColor,
                     ),
-                    const ChatCard(
+                    ChatCard(
                       nameTitle: 'Grup Islam',
                       timeTitle: '02:00',
                       secondTitle: 'gass',
                       iconUrl: 'assets/lisa 1.jpg',
-                      chat: Colors.grey,
+                      chat: greyColor,
                     ),
-                    const ChatCard(
+                    ChatCard(
                       nameTitle: 'Grup Islam',
                       timeTitle: '02:00',
                       secondTitle: 'gass',
                       iconUrl: 'assets/lisa 1.jpg',
-                      chat: Colors.grey,
+                      chat: greyColor,
                     ),
-                    const ChatCard(
+                    ChatCard(
                       nameTitle: 'Grup Islam',
                       timeTitle: '02:00',
                       secondTitle: 'gass',
                       iconUrl: 'assets/lisa 1.jpg',
-                      chat: Colors.grey,
+                      chat: greyColor,
                     ),
                   ],
                 ),

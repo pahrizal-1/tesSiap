@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tesbisa/theme/theme.dart';
 
 class ChatCard extends StatelessWidget {
   final String nameTitle;
@@ -52,11 +53,10 @@ class ChatCard extends StatelessWidget {
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Text(
             timeTitle,
-            style: const TextStyle(
-                color: Color(0xffA0A0A0), fontWeight: FontWeight.bold),
+            style: TextStyle(color: whiteColor, fontWeight: FontWeight.bold),
           ),
         ],
       ),
