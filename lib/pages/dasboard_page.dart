@@ -1,10 +1,11 @@
 // ignore_for_file: use_full_hex_values_for_flutter_colors
 
 import 'package:flutter/material.dart';
+import 'package:tesbisa/theme/theme.dart';
 
 import '../widget/chat_card.dart';
 import 'chat_page.dart';
-import 'kontack_page.dart';
+import 'contact_page.dart';
 
 class DasbordScreen extends StatelessWidget {
   const DasbordScreen({super.key});
@@ -12,7 +13,7 @@ class DasbordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff2296f3),
+      backgroundColor: primaryColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -23,10 +24,10 @@ class DasbordScreen extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 40),
                   width: 150,
                   height: 150,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white,
-                    image: DecorationImage(
+                    color: whiteColor,
+                    image: const DecorationImage(
                         image: AssetImage(
                           'assets/lisa3.png',
                         ),
@@ -38,33 +39,19 @@ class DasbordScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const Text(
-              'Pahrizal',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 35,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            Text('Pahrizal', style: titleTextStyle),
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              'Junior Web Development',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
+            Text('Junior Web Development', style: subtitleTextStyle),
             const SizedBox(
               height: 30,
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(40),
                   topRight: Radius.circular(40),
                 ),
@@ -75,14 +62,7 @@ class DasbordScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Friends',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                      ),
-                    ),
+                    Text('Friends', style: secondTextsylte),
                     const SizedBox(
                       height: 10,
                     ),
@@ -103,14 +83,7 @@ class DasbordScreen extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                    const Text(
-                      'Groups',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                      ),
-                    ),
+                    Text('Groups', style: secondTextsylte),
                     const SizedBox(
                       height: 15,
                     ),
@@ -175,7 +148,7 @@ class DasbordScreen extends StatelessWidget {
             ),
           );
         },
-        backgroundColor: Colors.blue,
+        backgroundColor: primaryColor,
         child: const Icon(Icons.chat),
       ),
     );

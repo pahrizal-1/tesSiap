@@ -19,10 +19,7 @@ class ChatPage extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: const Icon(
-                Icons.arrow_back_ios,
-                size: 29,
-              ),
+              child: const Icon(Icons.arrow_back),
             ),
           ),
           title: Padding(
@@ -122,67 +119,76 @@ class ChatPage extends StatelessWidget {
               urlImg: 'assets/lisa1.jpg',
               clockTitle: "20:20",
             ),
+            Chat(
+              nameTitle: 'Umi',
+              chatTitle: 'baik kak',
+              urlImg: 'assets/lisa1.jpg',
+              clockTitle: "20:20",
+            ),
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 90,
-        width: 10,
-        color: const Color(0xffF0F0F0),
-        child: Row(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(left: 20),
-              padding: const EdgeInsets.symmetric(
-                vertical: 10,
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Row(
-                children: [
-                  const Icon(
-                    Icons.emoji_emotions_outlined,
-                    color: Colors.black38,
-                    size: 30,
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  SizedBox(
-                    width: 200,
-                    child: TextFormField(
-                      style: const TextStyle(
-                        fontSize: 19,
-                      ),
-                      decoration: const InputDecoration(
-                          hintText: "Mesege..", border: InputBorder.none),
+      bottomNavigationBar: Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: Container(
+          height: 90,
+          width: 10,
+          color: Colors.grey,
+          child: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 15, right: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.emoji_emotions_outlined,
+                      color: Colors.black38,
+                      size: 30,
                     ),
-                  ),
-                  const Icon(
-                    Icons.attachment,
-                    color: Colors.black38,
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                ],
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    SizedBox(
+                      width: 200,
+                      child: TextFormField(
+                        style: const TextStyle(
+                          fontSize: 19,
+                        ),
+                        decoration: const InputDecoration(
+                            hintText: "Mesege..", border: InputBorder.none),
+                      ),
+                    ),
+                    const Icon(
+                      Icons.attachment,
+                      size: 30,
+                      color: Colors.black38,
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 5),
-              padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: const Color(0xffe9eef2),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: const Icon(
-                Icons.arrow_right,
-                size: 40,
-              ),
-            )
-          ],
+              Container(
+                margin: const EdgeInsets.only(left: 5),
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: const Color(0xffe9eef2),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: const Icon(
+                  Icons.arrow_right,
+                  size: 40,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

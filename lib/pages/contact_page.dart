@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tesbisa/theme/theme.dart';
 
 import '../widget/group_card.dart';
 
@@ -31,11 +32,14 @@ class ContactPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text('Pilih Kontak'),
+              children: [
+                Text(
+                  'Pilih Kontak',
+                  style: contackTextStyle,
+                ),
                 Text(
                   '14 Kontak',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                  style: contackTextStyle,
                 ),
               ],
             ),
@@ -147,7 +151,7 @@ class ContactCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(10),
           child: CircleAvatar(
-            backgroundColor: Colors.blue,
+            backgroundColor: primaryColor,
             radius: 27,
             backgroundImage: AssetImage(urlImage),
           ),
@@ -167,7 +171,7 @@ class ContactCard extends StatelessWidget {
             ),
             Text(
               nameSecond,
-              style: const TextStyle(fontSize: 15, color: Colors.grey),
+              style: TextStyle(fontSize: 15, color: greyColor),
             ),
           ],
         ),
