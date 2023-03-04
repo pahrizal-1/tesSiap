@@ -27,8 +27,8 @@ class ChatCard extends StatelessWidget {
           radius: 25,
           backgroundImage: AssetImage(iconUrl),
         ),
-        SizedBox(
-          width: 12,
+        const SizedBox(
+          width: spaceWidth,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,9 +36,10 @@ class ChatCard extends StatelessWidget {
             Text(
               nameTitle,
               style: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16),
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+              ),
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(
@@ -47,7 +48,10 @@ class ChatCard extends StatelessWidget {
             Text(
               secondTitle,
               style: TextStyle(
-                  color: chat, fontWeight: FontWeight.w500, fontSize: 16),
+                color: chat,
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+              ),
               overflow: TextOverflow.ellipsis,
             ),
           ],
@@ -55,7 +59,10 @@ class ChatCard extends StatelessWidget {
         const Spacer(),
         Text(
           timeTitle,
-          style: TextStyle(color: whiteColor, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: whiteColor,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ],
     );
