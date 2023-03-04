@@ -19,8 +19,8 @@ class DasbordScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 50),
               child: Center(
                 child: Container(
-                  width: 130,
-                  height: 130,
+                  width: 120,
+                  height: 120,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: whiteColor,
@@ -35,18 +35,18 @@ class DasbordScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: spaceHeigt,
             ),
             Text('Muhyi Abdul Basith', style: titleTextStyle),
             const SizedBox(
-              height: 10,
+              height: spaceHeigt,
             ),
             Text(
               'Software Developer',
               style: subtitleTextStyle,
             ),
             const SizedBox(
-              height: 30,
+              height: spaceHeigt,
             ),
             Container(
               width: double.infinity,
@@ -64,7 +64,7 @@ class DasbordScreen extends StatelessWidget {
                   children: [
                     Text('Friends', style: secondTextsylte),
                     const SizedBox(
-                      height: 10,
+                      height: spaceHeigt,
                     ),
                     const ChatCard(
                       nameTitle: 'Pahrizal',
@@ -72,6 +72,9 @@ class DasbordScreen extends StatelessWidget {
                       secondTitle: 'Siap Keja Boss',
                       iconUrl: 'assets/lisa 1.jpg',
                       chat: Colors.black,
+                    ),
+                    const SizedBox(
+                      height: spaceHeigt,
                     ),
                     const ChatCard(
                       nameTitle: 'Udin 12',
@@ -81,11 +84,11 @@ class DasbordScreen extends StatelessWidget {
                       chat: Colors.black54,
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: spaceHeigt,
                     ),
                     Text('Groups', style: secondTextsylte),
                     const SizedBox(
-                      height: 15,
+                      height: spaceHeigt,
                     ),
                     InkWell(
                       onTap: () {
@@ -104,6 +107,9 @@ class DasbordScreen extends StatelessWidget {
                         chat: Colors.black54,
                       ),
                     ),
+                    const SizedBox(
+                      height: spaceHeigt,
+                    ),
                     ChatCard(
                       nameTitle: 'Babu Bogor',
                       timeTitle: '02:00',
@@ -111,12 +117,8 @@ class DasbordScreen extends StatelessWidget {
                       iconUrl: 'assets/lisa 1.jpg',
                       chat: greyColor,
                     ),
-                    ChatCard(
-                      nameTitle: 'Grup Islam',
-                      timeTitle: '02:00',
-                      secondTitle: 'gass',
-                      iconUrl: 'assets/lisa 1.jpg',
-                      chat: greyColor,
+                    const SizedBox(
+                      height: spaceHeigt,
                     ),
                     ChatCard(
                       nameTitle: 'Grup Islam',
@@ -124,6 +126,19 @@ class DasbordScreen extends StatelessWidget {
                       secondTitle: 'gass',
                       iconUrl: 'assets/lisa 1.jpg',
                       chat: greyColor,
+                    ),
+                    const SizedBox(
+                      height: spaceHeigt,
+                    ),
+                    ChatCard(
+                      nameTitle: 'Grup Islam',
+                      timeTitle: '02:00',
+                      secondTitle: 'gass',
+                      iconUrl: 'assets/lisa 1.jpg',
+                      chat: greyColor,
+                    ),
+                    const SizedBox(
+                      height: spaceHeigt,
                     ),
                     ChatCard(
                       nameTitle: 'Grup Islam',
