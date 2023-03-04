@@ -12,8 +12,8 @@ TextStyle secondTextsylte = const TextStyle(
 
 TextStyle titleTextStyle = TextStyle(
   color: whiteColor,
-  fontSize: 35,
-  fontWeight: FontWeight.w500,
+  fontSize: 30,
+  fontWeight: FontWeight.w400,
 );
 
 TextStyle subtitleTextStyle = TextStyle(
@@ -23,7 +23,7 @@ TextStyle subtitleTextStyle = TextStyle(
 );
 
 TextStyle contackTextStyle = const TextStyle(
-  fontWeight: FontWeight.w500,
+  fontWeight: FontWeight.w400,
   fontSize: 20,
 );
 
