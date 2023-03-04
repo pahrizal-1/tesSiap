@@ -19,17 +19,17 @@ class DasbordScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 50),
               child: Center(
                 child: Container(
-                  margin: const EdgeInsets.only(top: 40),
-                  width: 150,
-                  height: 150,
+                  width: 130,
+                  height: 130,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: whiteColor,
                     image: const DecorationImage(
-                        image: AssetImage(
-                          'assets/lisa3.png',
-                        ),
-                        fit: BoxFit.cover),
+                      image: AssetImage(
+                        'assets/lisa3.png',
+                      ),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -37,12 +37,12 @@ class DasbordScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Text('Pahrizal', style: titleTextStyle),
+            Text('Muhyi Abdul Basith', style: titleTextStyle),
             const SizedBox(
               height: 10,
             ),
             Text(
-              'Junior Web Development',
+              'Software Developer',
               style: subtitleTextStyle,
             ),
             const SizedBox(
