@@ -27,6 +27,8 @@ TextStyle contackTextStyle = const TextStyle(
   fontSize: 20,
 );
 
+const double spaceWidth = 12;
+const double spaceHeigt = 12;
 const EdgeInsets kRegularPadding = EdgeInsets.all(20);
 const EdgeInsets kTopPadding = EdgeInsets.only(top: 10);
 const EdgeInsets symetric = EdgeInsets.symmetric(horizontal: 30, vertical: 30);
