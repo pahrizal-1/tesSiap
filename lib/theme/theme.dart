@@ -26,9 +26,13 @@ TextStyle contackTextStyle = const TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 20,
 );
+TextStyle higTextStyle = const TextStyle(
+  fontWeight: FontWeight.w400,
+  fontSize: 30,
+);
 
-const double spaceWidth = 12;
-const double spaceHeigt = 12;
+const double spaceWidth = 15;
+const double spaceHeigt = 15;
 const EdgeInsets kRegularPadding = EdgeInsets.all(20);
 const EdgeInsets kTopPadding = EdgeInsets.only(top: 10);
 const EdgeInsets symetric = EdgeInsets.symmetric(horizontal: 30, vertical: 30);
