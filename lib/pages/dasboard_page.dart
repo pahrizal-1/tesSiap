@@ -95,7 +95,8 @@ class DasbordScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ChatPage(),
+                            builder: (context) =>
+                                const ChatPage(username: "Muhyi"),
                           ),
                         );
                       },
@@ -110,12 +111,23 @@ class DasbordScreen extends StatelessWidget {
                     const SizedBox(
                       height: spaceHeigt,
                     ),
-                    ChatCard(
-                      nameTitle: 'Babu Bogor',
-                      timeTitle: '02:00',
-                      secondTitle: 'gass',
-                      iconUrl: 'assets/lisa 1.jpg',
-                      chat: greyColor,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const ChatPage(username: "Pahrijal"),
+                          ),
+                        );
+                      },
+                      child: ChatCard(
+                        nameTitle: 'Babu Bogor',
+                        timeTitle: '02:00',
+                        secondTitle: 'gass',
+                        iconUrl: 'assets/lisa 1.jpg',
+                        chat: greyColor,
+                      ),
                     ),
                     const SizedBox(
                       height: spaceHeigt,

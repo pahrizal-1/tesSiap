@@ -1,196 +1,206 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:provider/provider.dart';
+import 'package:tesbisa/model/message.dart';
+import 'package:tesbisa/provider/chat.dart';
 
-import '../widget/chat_room.dart';
+class ChatPage extends StatefulWidget {
+  final String username;
+  const ChatPage({Key? key, required this.username}) : super(key: key);
 
-class ChatPage extends StatelessWidget {
-  const ChatPage({super.key});
+  @override
+  State<ChatPage> createState() => _ChatPageState();
+}
+
+class _ChatPageState extends State<ChatPage> {
+  late IO.Socket _socket;
+  final TextEditingController _messageInputController = TextEditingController();
+
+  _sendMessage() {
+    _socket.emit('message', {
+      'message': _messageInputController.text.toString(),
+      'sender': widget.username
+    });
+    _messageInputController.clear();
+  }
+
+  _connectSocket() {
+    _socket.onConnect((data) => print('Connection established'));
+    _socket.onConnectError((data) => print('Connect Error: $data'));
+    _socket.onDisconnect((data) => print('Socket.IO server disconnected'));
+    _socket.on('message', (data) {
+      if (!mounted) return;
+      print('data $data');
+      Provider.of<ChatProvider>(context, listen: false)
+          .addNewMessage(Message.fromJson(data));
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (!isWeb()) {
+      print("ini android");
+      _socket = IO.io(
+        'http://10.0.2.2:3000',
+        IO.OptionBuilder().setTransports(['websocket']).setQuery(
+            {'username': widget.username}).build(),
+      );
+    } else {
+      print("ini web");
+      _socket = IO.io(
+        'http://localhost:3000',
+        IO.OptionBuilder().setTransports(['websocket']).setQuery(
+            {'username': widget.username}).build(),
+      );
+    }
+
+    _connectSocket();
+  }
+
+  @override
+  void dispose() {
+    _messageInputController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(65),
-        child: AppBar(
-          centerTitle: false,
-          elevation: 0,
-          leading: Container(
-            margin: const EdgeInsets.only(left: 20, top: 10),
-            child: InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: const Icon(Icons.arrow_back),
-            ),
-          ),
-          title: Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const CircleAvatar(
-                  backgroundColor: Colors.white,
-                  radius: 25,
-                  backgroundImage: AssetImage('assets/743397.png'),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Grup Facabok',
-                      style: TextStyle(fontSize: 25),
-                    ),
-                    Text(
-                      '10,123 Members',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          actions: const [
-            Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                right: 25,
-              ),
-              child: Icon(
-                Icons.call,
-                size: 30,
-              ),
-            ),
-          ],
-        ),
+      appBar: AppBar(
+        title: const Text('Grup H. Ujang'),
       ),
-      body: SingleChildScrollView(
-        reverse: false,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const [
-            Chat(
-              chatTitle: 'Halo Apa Kabar Teman',
-              nameTitle: 'Udin Teman',
-              urlImg: 'assets/lisa 1.jpg',
-              clockTitle: '20:20',
-            ),
-            ChatUser(
-              chatTitle: 'Baik sekali,',
-              urlImg: 'assets/lisa1.jpg',
-              clockTitle: '20:20',
-            ),
-            Chat(
-              nameTitle: 'Umi',
-              chatTitle: 'gw baik,lu gimana ? gw harap\n kalian sehat semua',
-              urlImg: 'assets/lisa1.jpg',
-              clockTitle: "20:20",
-            ),
-            Chat(
-              nameTitle: 'Umi',
-              chatTitle: 'baik kak',
-              urlImg: 'assets/lisa1.jpg',
-              clockTitle: "20:20",
-            ),
-            Chat(
-              nameTitle: 'Umi',
-              chatTitle: 'baik kak',
-              urlImg: 'assets/lisa1.jpg',
-              clockTitle: "20:20",
-            ),
-            Chat(
-              nameTitle: 'Umi',
-              chatTitle: 'baik kak',
-              urlImg: 'assets/lisa1.jpg',
-              clockTitle: "20:20",
-            ),
-            Chat(
-              nameTitle: 'Umi',
-              chatTitle: 'baik kak',
-              urlImg: 'assets/lisa1.jpg',
-              clockTitle: "20:20",
-            ),
-            Chat(
-              nameTitle: 'Umi',
-              chatTitle: 'baik kak',
-              urlImg: 'assets/lisa1.jpg',
-              clockTitle: "20:20",
-            ),
-            Chat(
-              nameTitle: 'Umi',
-              chatTitle: 'baik kak',
-              urlImg: 'assets/lisa1.jpg',
-              clockTitle: "20:20",
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: MediaQuery.of(context).viewInsets,
-        child: Container(
-          height: 90,
-          width: 10,
-          color: Colors.grey,
-          child: Row(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(left: 15, right: 10),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.emoji_emotions_outlined,
-                      color: Colors.black38,
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    SizedBox(
-                      width: 200,
-                      child: TextFormField(
-                        style: const TextStyle(
-                          fontSize: 19,
+      body: Column(
+        children: [
+          Expanded(
+            child: Consumer<ChatProvider>(
+              builder: (_, provider, __) => ListView.separated(
+                padding: const EdgeInsets.all(16),
+                itemBuilder: (context, index) {
+                  final message = provider.messages[index];
+
+                  return Wrap(
+                    alignment: message.senderUsername.toString() ==
+                            widget.username.toString()
+                        ? WrapAlignment.end
+                        : WrapAlignment.start,
+                    children: [
+                      Card(
+                        color: message.senderUsername.toString() ==
+                                widget.username.toString()
+                            ? Theme.of(context).primaryColorLight
+                            : Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment:
+                                message.senderUsername.toString() ==
+                                        widget.username.toString()
+                                    ? CrossAxisAlignment.end
+                                    : CrossAxisAlignment.start,
+                            children: [
+                              message.senderUsername.toString() ==
+                                      widget.username.toString()
+                                  ? const SizedBox()
+                                  : Text(
+                                      message.senderUsername,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                message.message,
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                DateFormat('hh:mm a').format(message.sentAt),
+                                style: Theme.of(context).textTheme.caption,
+                              ),
+                            ],
+                          ),
                         ),
-                        decoration: const InputDecoration(
-                            hintText: "Mesege..", border: InputBorder.none),
+                      )
+                    ],
+                  );
+                },
+                separatorBuilder: (_, index) => const SizedBox(
+                  height: 5,
+                ),
+                itemCount: provider.messages.length,
+              ),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.grey.shade200,
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+            ),
+            child: SafeArea(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: _messageInputController,
+                      decoration: const InputDecoration(
+                        hintText: 'Type your message here...',
+                        border: InputBorder.none,
                       ),
                     ),
-                    const Icon(
-                      Icons.attachment,
-                      size: 30,
-                      color: Colors.black38,
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                  ],
-                ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      if (_messageInputController.text.toString().isNotEmpty) {
+                        _sendMessage();
+                      }
+                    },
+                    icon: const Icon(Icons.send),
+                  )
+                ],
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 5),
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  color: const Color(0xffe9eef2),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: const Icon(
-                  Icons.arrow_right,
-                  size: 40,
-                ),
-              )
-            ],
-          ),
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
+}
+
+extension Target on Object {
+  bool isAndroid() {
+    return Platform.isAndroid;
+  }
+
+  bool isIOS() {
+    return Platform.isIOS;
+  }
+
+  bool isLinux() {
+    return Platform.isLinux;
+  }
+
+  bool isWindows() {
+    return Platform.isWindows;
+  }
+
+  bool isMacOS() {
+    return Platform.isMacOS;
+  }
+
+  bool isWeb() {
+    return kIsWeb;
+  }
+  // ···
 }
